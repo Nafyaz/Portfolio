@@ -22,8 +22,8 @@
     where I got my undergraduate degree, and secured <a class="text-blue-500 hover:underline"
                                                         href="https://icpc.global/ICPCID/J5RB60S8U1J5"> 8th place in
     2022 ICPC Dhaka Regional </a> among many other achievements. I was also among the top 20 National campers from
-    Bangladesh
-    Mathematical Olympiad in 2016.
+    <a class="text-blue-500 hover:underline" href="https://online.matholympiad.org.bd/"> Bangladesh Mathematical
+      Olympiad </a> when I was in high school in 2016.
   </p>
 
   <p class="my-2">
