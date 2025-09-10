@@ -1,5 +1,5 @@
 <script>
-  import NimGame from '$lib/components/nim-game.svelte';
+  import NimGame from '$lib/components/game/nim-game.svelte';
 </script>
 
 <div class="m-8 ">

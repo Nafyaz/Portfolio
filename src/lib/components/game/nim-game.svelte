@@ -62,19 +62,19 @@
         Total Number of coins:
       </div>
       <div>
-        <Input disabled={hasStarted} class="inline max-w-3xs" type="number" bind:value="{totalCoins}" />
+        <Input readonly={hasStarted} class="inline max-w-3xs" type="number" bind:value="{totalCoins}" />
       </div>
       <div>
         Maximum Number of coins per turn:
       </div>
       <div>
-        <Input disabled={hasStarted} class="inline max-w-3xs" type="number" bind:value="{coinsPerTurn}" />
+        <Input readonly={hasStarted} class="inline max-w-3xs" type="number" bind:value="{coinsPerTurn}" />
       </div>
       <div>
         Do you want to go first?
       </div>
       <div>
-        <Checkbox disabled={hasStarted} class="inline max-w-3xs" bind:checked={goFirst} />
+        <Checkbox readonly={hasStarted} class="inline max-w-3xs" bind:checked={goFirst} />
       </div>
     </div>
   </div>
@@ -88,7 +88,11 @@
       {getLastMoveSummary()}
 
       {#if goFirst}
-        Your move: <Input type="number" bind:value="{yourCoins}" />
+        Your move: <Input type="number" bind:value="{yourCoins}" onkeydown={(e) => {
+                            if (e.key === 'Enter') {
+
+                            }
+                          }} />
         <!--        My move: {getMyMove()}-->
       {:else}
         <!--        My move: {getMyMove()}-->
