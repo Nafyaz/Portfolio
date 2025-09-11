@@ -2,6 +2,8 @@
   import { Input } from '$lib/components/ui/input';
   import { Checkbox } from '$lib/components/ui/checkbox';
   import { Button } from '$lib/components/ui/button';
+  import YourMove from './your-move.svelte';
+  import MyMove from './my-move.svelte';
 
   let totalCoins = $state(20);
   let coinsPerTurn = $state(2);
@@ -54,7 +56,7 @@
     coin wins the game.
   </div>
 
-  <div class="my-2">
+  <div class="my-2 md:w-1/2">
     <p class="font-bold"> Configuration: </p>
 
     <div class="grid md:grid-cols-2 gap-1">
@@ -62,19 +64,19 @@
         Total Number of coins:
       </div>
       <div>
-        <Input readonly={hasStarted} class="inline max-w-3xs" type="number" bind:value="{totalCoins}" />
+        <Input readonly={hasStarted} class="inline max-w-3xs max-h-lh" type="number" bind:value="{totalCoins}" />
       </div>
       <div>
         Maximum Number of coins per turn:
       </div>
       <div>
-        <Input readonly={hasStarted} class="inline max-w-3xs" type="number" bind:value="{coinsPerTurn}" />
+        <Input readonly={hasStarted} class="inline max-w-3xs max-h-lh" type="number" bind:value="{coinsPerTurn}" />
       </div>
       <div>
         Do you want to go first?
       </div>
       <div>
-        <Checkbox readonly={hasStarted} class="inline max-w-3xs" bind:checked={goFirst} />
+        <Checkbox readonly={hasStarted} class="inline max-w-3xs max-h-lh" bind:checked={goFirst} />
       </div>
     </div>
   </div>
@@ -84,20 +86,20 @@
       <Button onclick={startGame}>Start</Button>
     </div>
   {:else}
-    <div class="bg-gray-200 p-2 font-mono">
-      {getLastMoveSummary()}
+    <div class="p-2">
+      <div class="bg-gray-200 rounded-md font-mono py-2 px-1">
+        {getLastMoveSummary()}
+      </div>
 
-      {#if goFirst}
-        Your move: <Input type="number" bind:value="{yourCoins}" onkeydown={(e) => {
-                            if (e.key === 'Enter') {
-
-                            }
-                          }} />
-        <!--        My move: {getMyMove()}-->
-      {:else}
-        <!--        My move: {getMyMove()}-->
-        Your move: <Input type="number" bind:value="{yourCoins}" />
-      {/if}
+      <div>
+        {#if goFirst}
+          <YourMove bind:value={yourCoins} />
+          <MyMove />
+        {:else}
+          <MyMove />
+          <YourMove bind:value={yourCoins} />
+        {/if}
+      </div>
     </div>
 
     {#if hasEnded}
