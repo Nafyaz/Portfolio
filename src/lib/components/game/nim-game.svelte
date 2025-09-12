@@ -4,6 +4,7 @@
   import { Button } from '$lib/components/ui/button';
   import YourMove from './your-move.svelte';
   import MyMove from './my-move.svelte';
+  import { NextMove } from './next-move';
 
   let totalCoins = $state(20);
   let coinsPerTurn = $state(2);
@@ -14,12 +15,14 @@
   let hasEnded = $state(false);
   let gameHistory = $state<string[]>([]);
 
+  let nextMove = $state<NextMove>(NextMove.None);
   let yourCoins = $state();
   let myCoins = $state();
 
   function startGame() {
     remainingCoins = totalCoins;
     hasStarted = true;
+    nextMove = goFirst ? NextMove.YOU : NextMove.ME;
   }
 
   function getLastMoveSummary() {
@@ -56,10 +59,10 @@
     coin wins the game.
   </div>
 
-  <div class="my-2 md:w-1/2">
+  <div class="my-2 lg:w-1/2">
     <p class="font-bold"> Configuration: </p>
 
-    <div class="grid md:grid-cols-2 gap-1">
+    <div class="grid lg:grid-cols-2 gap-1">
       <div>
         Total Number of coins:
       </div>
@@ -91,7 +94,7 @@
         {getLastMoveSummary()}
       </div>
 
-      <div>
+      <div class="bg-red-400 min-h-80">
         {#if goFirst}
           <YourMove bind:value={yourCoins} />
           <MyMove />

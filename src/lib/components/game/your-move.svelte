@@ -5,7 +5,7 @@
   let readOnly = $state(false);
 </script>
 
-<div class="md:w-1/3 grid md:grid-cols-4 gap-1">
+<div class="lg:w-1/3 grid lg:grid-cols-4 gap-1">
   <div>
     Your move:
   </div>

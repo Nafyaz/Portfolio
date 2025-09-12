@@ -27,9 +27,13 @@
   </p>
 
   <p class="my-2">
-    Here is a fun Nim game from my favorite <a class="text-blue-500 hover:underline"
-                                               href="https://www.amazon.com/Course-Game-Theory-Thomas-Ferguson/dp/9813227346">
-    game theory book </a> that I play with my friends and family to prank them. <span class="italic">(Spoilers: You will always lose)</span>
+    Here is a fun Nim game that I play with my friends and family to prank them. You can learn more about it here: <a
+    class="text-blue-500 hover:underline"
+    href="https://www.amazon.com/Course-Game-Theory-Thomas-Ferguson/dp/9813227346"> Game Theory </a>.
+  </p>
+
+  <p>
+    <span class="italic">(Spoilers: You will always lose)</span>
   </p>
 
   <!--  <p>Last updated: September, 2025</p>-->
