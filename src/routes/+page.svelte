@@ -27,9 +27,9 @@
   </p>
 
   <p class="my-2">
-    Here is a fun Nim game that I play with my friends and family to prank them. You can learn more about it here: <a
+    Here is a fun Nim game that I play with my friends and family to prank them. You can learn more about it in this <a
     class="text-blue-500 hover:underline"
-    href="https://www.amazon.com/Course-Game-Theory-Thomas-Ferguson/dp/9813227346"> Game Theory </a>.
+    href="https://www.amazon.com/Course-Game-Theory-Thomas-Ferguson/dp/9813227346"> Game Theory Book </a>.
   </p>
 
   <p>

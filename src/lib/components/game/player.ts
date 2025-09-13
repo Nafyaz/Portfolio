@@ -1,4 +1,4 @@
-export enum NextMove {
+export enum Player {
   YOU,
   ME,
   None,
