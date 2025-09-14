@@ -1,7 +1,8 @@
+// TODO: Make fields private
 export class GameConfig {
-  totalCoins: number;
-  coinsPerTurn: number;
-  goFirst: boolean;
+  totalCoins = $state<number>()!;
+  coinsPerTurn = $state<number>()!;
+  goFirst = $state<boolean>()!;
 
   constructor(totalCoins: number, coinsPerTurn: number, goFirst: boolean) {
     this.totalCoins = totalCoins;

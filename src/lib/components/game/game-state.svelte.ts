@@ -1,12 +1,12 @@
 import { Player } from "$lib/components/game/player";
-import type { GameConfig } from "$lib/components/game/game-config";
+import type { GameConfig } from "$lib/components/game/game-config.svelte";
 import type { Move } from "$lib/components/game/move";
 
 export class GameState {
-  remainingCoins: number;
-  hasEnded: boolean;
-  nextPlayer: Player;
-  history: Move[];
+  remainingCoins = $state<number>()!;
+  hasEnded = $state<boolean>()!;
+  nextPlayer = $state<Player>()!;
+  history = $state<Move[]>()!;
 
   constructor(gameConfig: GameConfig) {
     this.remainingCoins = gameConfig.totalCoins;

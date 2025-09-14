@@ -4,11 +4,11 @@
   import { Button } from '$lib/components/ui/button';
   import YourMove from './your-move.svelte';
   import MyMove from './my-move.svelte';
-  import { GameState } from '$lib/components/game/game-state';
-  import { GameConfig } from '$lib/components/game/game-config';
+  import { GameState } from '$lib/components/game/game-state.svelte';
+  import { GameConfig } from '$lib/components/game/game-config.svelte';
   import { Player } from '$lib/components/game/player';
 
-  let gameConfig = $state<GameConfig>(new GameConfig(20, 2, false));
+  let gameConfig = new GameConfig(20, 2, false);
   let gameState: GameState | null = $state(null);
 
   function startGame() {
@@ -19,7 +19,6 @@
     gameState?.dispose();
     gameState = null;
   }
-
 </script>
 
 <div class="mx-10 my-8 border-2 p-2">
@@ -51,7 +50,7 @@
         Do you want to go first?
       </div>
       <div>
-        <Checkbox readonly={gameState != null} class="inline max-w-3xs max-h-lh" bind:checked={gameConfig.goFirst} />
+        <Checkbox readonly={gameState != null} class="inline max-w-3xs max-h-lh" bind:checked="{gameConfig.goFirst}" />
       </div>
     </div>
   </div>
@@ -68,12 +67,20 @@
 
       <div class="my-4 min-h-80">
         {#each gameState.history as move (move.id)}
-          move: {move}
+          <div>
+            {#if (move.player === Player.YOU)}
+              Your turn: {move.coins}
+            {/if}
+            {#if (move.player === Player.ME)}
+              My turn: {move.coins}
+            {/if}
+          </div>
         {/each}
-        {#if gameState.nextPlayer === Player.YOU}
-          <YourMove bind:gameState={gameState} />
-        {:else if gameState.nextPlayer === Player.ME}
+
+        {#if gameState.nextPlayer === Player.ME}
           <MyMove bind:gameState={gameState} gameConfig={gameConfig} />
+        {:else if gameState.nextPlayer === Player.YOU}
+          <YourMove bind:gameState={gameState} />
         {/if}
       </div>
     </div>
