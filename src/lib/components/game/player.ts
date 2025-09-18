@@ -1,5 +1,5 @@
 export enum Player {
-  YOU,
-  ME,
-  None,
+  YOU = "You",
+  ME = "Me",
+  None = "-",
 }

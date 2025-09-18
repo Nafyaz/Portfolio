@@ -4,6 +4,4 @@ I am keeping all my achievements, updates, and projects here. There's also a sma
 
 ## TODO
 
-1. Make input fields vertically middle aligned.
-2. Show game current stats i.e remaining coins in right side.
-3. Make my-move async.
+1. Make my-move async.

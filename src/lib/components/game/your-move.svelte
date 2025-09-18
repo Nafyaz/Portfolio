@@ -17,13 +17,13 @@
 
 </script>
 
-<div class="lg:w-1/3 grid lg:grid-cols-4 gap-1">
+<div class="grid lg:grid-cols-4 gap-1">
   <div>
     Your turn:
   </div>
   <div class="col-span-2">
     <Input type="number"
-           class="inline max-w-3xs max-h-lh"
+           class="inline-block align-middle max-w-3xs max-h-lh"
            bind:value="{coins}"
            readonly={readOnly}
            onkeydown={(e) => {

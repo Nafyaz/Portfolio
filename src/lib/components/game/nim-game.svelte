@@ -36,21 +36,23 @@
         Total Number of coins:
       </div>
       <div>
-        <Input readonly={gameState != null} class="inline max-w-3xs max-h-lh" type="number"
+        <Input readonly={gameState != null} class="inline-block align-middle max-w-3xs max-h-lh"
+               type="number"
                bind:value="{gameConfig.totalCoins}" />
       </div>
       <div>
         Maximum Number of coins per turn:
       </div>
       <div>
-        <Input readonly={gameState != null} class="inline max-w-3xs max-h-lh" type="number"
+        <Input readonly={gameState != null} class="inline-block align-middle max-w-3xs max-h-lh" type="number"
                bind:value="{gameConfig.coinsPerTurn}" />
       </div>
       <div>
         Do you want to go first?
       </div>
       <div>
-        <Checkbox readonly={gameState != null} class="inline max-w-3xs max-h-lh" bind:checked="{gameConfig.goFirst}" />
+        <Checkbox readonly={gameState != null} class="inline-block align-middle max-w-3xs max-h-lh"
+                  bind:checked="{gameConfig.goFirst}" />
       </div>
     </div>
   </div>
@@ -65,23 +67,38 @@
         {gameConfig.getStartGameMessage()}
       </div>
 
-      <div class="my-4 min-h-80">
-        {#each gameState.history as move (move.id)}
-          <div>
-            {#if (move.player === Player.YOU)}
-              Your turn: {move.coins}
-            {/if}
-            {#if (move.player === Player.ME)}
-              My turn: {move.coins}
-            {/if}
+      <div class="my-4 min-h-80 flex">
+        <div class="lg:w-1/3">
+          <div class="grid lg:grid-cols-4 gap-1">
+            {#each gameState.history as move (move.id)}
+              <div>
+                {#if (move.player === Player.YOU)}
+                  Your turn:
+                {:else if (move.player === Player.ME)}
+                  My turn:
+                {/if}
+              </div>
+              <div class="col-span-3">
+                {move.coins}
+              </div>
+            {/each}
           </div>
-        {/each}
 
-        {#if gameState.nextPlayer === Player.ME}
-          <MyMove bind:gameState={gameState} gameConfig={gameConfig} />
-        {:else if gameState.nextPlayer === Player.YOU}
-          <YourMove bind:gameState={gameState} />
-        {/if}
+          {#if gameState.nextPlayer === Player.ME}
+            <MyMove bind:gameState={gameState} gameConfig={gameConfig} />
+          {:else if gameState.nextPlayer === Player.YOU}
+            <YourMove bind:gameState={gameState} />
+          {/if}
+        </div>
+        <div class="lg:w-2/3">
+          <h1 class="font-bold">Current Stats</h1>
+          <p>
+            Remaining Coins: {gameState.remainingCoins}
+          </p>
+          <p>
+            Next Player: {gameState.nextPlayer}
+          </p>
+        </div>
       </div>
     </div>
 

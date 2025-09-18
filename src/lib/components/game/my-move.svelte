@@ -30,7 +30,7 @@
   });
 </script>
 
-<div class="lg:w-1/3 grid lg:grid-cols-4 gap-1">
+<div class="grid lg:grid-cols-4 gap-1">
   <div>
     My turn:
   </div>
