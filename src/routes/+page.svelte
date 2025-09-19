@@ -1,5 +1,8 @@
 <script>
+  import { superForm } from 'sveltekit-superforms/client';
   import NimGame from '$lib/components/game/nim-game.svelte';
+
+  
 </script>
 
 <div class="m-10">

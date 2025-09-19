@@ -2,11 +2,12 @@
   import { Input } from '$lib/components/ui/input';
   import { Checkbox } from '$lib/components/ui/checkbox';
   import { Button } from '$lib/components/ui/button';
-  import YourMove from './your-move.svelte';
-  import MyMove from './my-move.svelte';
+  import { Label } from '$lib/components/ui/label';
   import { GameState } from '$lib/components/game/game-state.svelte';
   import { GameConfig } from '$lib/components/game/game-config.svelte';
   import { Player } from '$lib/components/game/player';
+  import YourMove from './your-move.svelte';
+  import MyMove from './my-move.svelte';
 
   let gameConfig = new GameConfig(20, 2, false);
   let gameState: GameState | null = $state(null);
@@ -33,25 +34,26 @@
 
     <div class="grid lg:grid-cols-2 gap-1">
       <div>
-        Total Number of coins:
+        <Label for="totalCoins">Total Number of coins:</Label>
       </div>
       <div>
-        <Input readonly={gameState != null} class="inline-block align-middle max-w-3xs max-h-lh"
-               type="number"
+        <Input id="totalCoins" class="inline-block align-middle max-w-3xs max-h-lh" type="number"
+               readonly={gameState != null}
                bind:value="{gameConfig.totalCoins}" />
       </div>
       <div>
-        Maximum Number of coins per turn:
+        <Label for="coinsPerTurn">Maximum Number of coins per turn:</Label>
       </div>
       <div>
-        <Input readonly={gameState != null} class="inline-block align-middle max-w-3xs max-h-lh" type="number"
+        <Input id="coinsPerTurn" class="inline-block align-middle max-w-3xs max-h-lh" type="number"
+               readonly={gameState != null}
                bind:value="{gameConfig.coinsPerTurn}" />
       </div>
       <div>
-        Do you want to go first?
+        <Label for="goFirst">Do you want to go first?</Label>
       </div>
       <div>
-        <Checkbox readonly={gameState != null} class="inline-block align-middle max-w-3xs max-h-lh"
+        <Checkbox id="goFirst" class="inline-block align-middle max-w-3xs max-h-lh" readonly={gameState != null}
                   bind:checked="{gameConfig.goFirst}" />
       </div>
     </div>
