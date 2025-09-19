@@ -4,4 +4,8 @@ I am keeping all my achievements, updates, and projects here. There's also a sma
 
 ## TODO
 
-1. Make my-move async.
+1. implement end game.
+2. Add validation logic.
+3. Get random waiting message.
+4. Implement animations.
+5. Fillup other pages

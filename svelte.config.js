@@ -9,6 +9,11 @@ const config = {
   preprocess: [vitePreprocess(), mdsvex()],
   kit: { adapter: adapter() },
   extensions: [".svelte", ".svx"],
+  compilerOptions: {
+    experimental: {
+      async: true,
+    },
+  },
 };
 
 export default config;
