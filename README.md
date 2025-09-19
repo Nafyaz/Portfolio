@@ -4,8 +4,8 @@ I am keeping all my achievements, updates, and projects here. There's also a sma
 
 ## TODO
 
-1. implement end game.
+1. Implement end game.
 2. Add validation logic.
-3. Get random waiting message.
-4. Implement animations.
-5. Fillup other pages
+3. Fillup other pages
+4. Get random waiting message.
+5. Implement animations.
