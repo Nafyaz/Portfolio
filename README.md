@@ -4,8 +4,9 @@ I am keeping all my achievements, updates, and projects here. There's also a sma
 
 ## TODO
 
-1. Implement end game.
-2. Add validation logic.
+1. Add validation logic.
+2. Learn about nim game in my blog, instead of game theory book.
 3. Fillup other pages
 4. Get random waiting message.
 5. Implement animations.
+6. Generate AI images of me after end game.

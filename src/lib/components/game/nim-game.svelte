@@ -69,8 +69,17 @@
         {gameConfig.getStartGameMessage()}
       </div>
 
-      <div class="my-4 min-h-80 flex">
-        <div class="lg:w-1/3">
+      <div class="my-4 lg:flex lg:flex-row-reverse">
+        <div class="lg:w-2/3 p-2 border-b lg:border-b-0 lg:border-l">
+          <h1 class="font-bold">Current Stats</h1>
+          <p>
+            Remaining Coins: {gameState.remainingCoins}
+          </p>
+          <p>
+            Next Player: {gameState.nextPlayer}
+          </p>
+        </div>
+        <div class="lg:w-1/3 h-80 overflow-y-auto p-2">
           <div class="grid lg:grid-cols-4 gap-1">
             {#each gameState.history as move (move.id)}
               <div>
@@ -92,15 +101,6 @@
             <YourMove bind:gameState={gameState} />
           {/if}
         </div>
-        <div class="lg:w-2/3">
-          <h1 class="font-bold">Current Stats</h1>
-          <p>
-            Remaining Coins: {gameState.remainingCoins}
-          </p>
-          <p>
-            Next Player: {gameState.nextPlayer}
-          </p>
-        </div>
       </div>
     </div>
 
@@ -109,7 +109,7 @@
       <Button onclick={restart}>Restart</Button>
     {:else}
       <div class="my-2">
-        <Button onclick={gameState.endGame}>Accept Defeat</Button>
+        <Button onclick={() => gameState?.endGame(Player.ME)}>Accept Defeat</Button>
       </div>
     {/if}
   {/if}

@@ -1,8 +1,5 @@
 <script>
-  import { superForm } from 'sveltekit-superforms/client';
   import NimGame from '$lib/components/game/nim-game.svelte';
-
-  
 </script>
 
 <div class="m-10">
@@ -12,7 +9,7 @@
       Hello, mysterious wanderer! Curious to know what brought you to my website. Anyway, I am currently
       working as a software engineer in <a class="text-blue-500 hover:underline" href="https://therapbd.com/">Therap
       BD</a>. Here I work with Java, Spring Boot. Some of my day-to-day responsibilities involve fiddling through
-      undocumented legacy codebase, resolving issues, fixing data inconsistencies, removing redundant code, enhancing
+      undocumented legacy codebase, adding new features, resolving issues, fixing data inconsistencies, enhancing
       maintainability and performance.
     </p>
 
