@@ -1,4 +1,4 @@
-import type { Player } from "$lib/components/game/player";
+import type { Player } from "$lib/entities/game/player";
 
 export class Move {
   id: number = 0;

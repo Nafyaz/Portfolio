@@ -1,20 +1,13 @@
 <script lang="ts">
-  import { Input } from '$lib/components/ui/input';
-  import { Checkbox } from '$lib/components/ui/checkbox';
   import { Button } from '$lib/components/ui/button';
-  import { Label } from '$lib/components/ui/label';
-  import { GameState } from '$lib/components/game/game-state.svelte';
-  import { GameConfig } from '$lib/components/game/game-config.svelte';
-  import { Player } from '$lib/components/game/player';
+  import { GameState } from '$lib/entities/game/game-state.svelte.js';
+  import { GameConfig } from '$lib/entities/game/game-config.svelte.js';
+  import { Player } from '$lib/entities/game/player';
   import YourMove from './your-move.svelte';
   import MyMove from './my-move.svelte';
 
   let gameConfig = new GameConfig(20, 2, false);
   let gameState: GameState | null = $state(null);
-
-  function startGame() {
-    gameState = new GameState(gameConfig);
-  }
 
   function restart() {
     gameState?.dispose();
@@ -30,40 +23,10 @@
   </div>
 
   <div class="my-2 lg:w-1/2">
-    <p class="font-bold"> Configuration: </p>
-
-    <div class="grid lg:grid-cols-2 gap-1">
-      <div>
-        <Label for="totalCoins">Total Number of coins:</Label>
-      </div>
-      <div>
-        <Input id="totalCoins" class="inline-block align-middle max-w-3xs max-h-lh" type="number"
-               readonly={gameState != null}
-               bind:value="{gameConfig.totalCoins}" />
-      </div>
-      <div>
-        <Label for="coinsPerTurn">Maximum Number of coins per turn:</Label>
-      </div>
-      <div>
-        <Input id="coinsPerTurn" class="inline-block align-middle max-w-3xs max-h-lh" type="number"
-               readonly={gameState != null}
-               bind:value="{gameConfig.coinsPerTurn}" />
-      </div>
-      <div>
-        <Label for="goFirst">Do you want to go first?</Label>
-      </div>
-      <div>
-        <Checkbox id="goFirst" class="inline-block align-middle max-w-3xs max-h-lh" readonly={gameState != null}
-                  bind:checked="{gameConfig.goFirst}" />
-      </div>
-    </div>
+    <GameConfig bind:gameState={gameState} bind:gameConfig={gameConfig} />
   </div>
 
-  {#if gameState == null}
-    <div class="my-2">
-      <Button onclick={startGame}>Start</Button>
-    </div>
-  {:else}
+  {#if gameState != null}
     <div class="p-2">
       <div class="bg-gray-200 rounded-md font-mono py-2 px-1">
         {gameConfig.getStartGameMessage()}

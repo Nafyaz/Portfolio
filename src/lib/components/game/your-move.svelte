@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Input } from '$lib/components/ui/input/index.js';
-  import { Move } from '$lib/components/game/move.js';
-  import { Player } from '$lib/components/game/player.js';
+  import { Move } from '$lib/entities/game/move.js';
+  import { Player } from '$lib/entities/game/player.js';
 
   let { gameState = $bindable() } = $props();
   let coins = $state(1);

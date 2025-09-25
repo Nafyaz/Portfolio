@@ -1,6 +1,6 @@
-import { Player } from "$lib/components/game/player";
-import type { GameConfig } from "$lib/components/game/game-config.svelte";
-import type { Move } from "$lib/components/game/move";
+import { Player } from "$lib/entities/game/player";
+import type { GameConfig } from "$lib/entities/game/game-config.svelte.js";
+import type { Move } from "$lib/entities/game/move";
 
 export class GameState {
   remainingCoins = $state<number>()!;

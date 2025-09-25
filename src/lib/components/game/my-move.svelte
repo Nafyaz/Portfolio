@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { Player } from '$lib/components/game/player.js';
-  import { Move } from '$lib/components/game/move.js';
+  import { Player } from '$lib/entities/game/player.js';
+  import { Move } from '$lib/entities/game/move.js';
 
   let { gameState = $bindable(), gameConfig } = $props();
 
