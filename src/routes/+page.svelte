@@ -1,5 +1,5 @@
 <script>
-  import NimGame from '$lib/components/game/nim-game.svelte';
+  // import NimGame from '$lib/components/game/nim-game.svelte';
 </script>
 
 <div class="m-10">
@@ -15,7 +15,7 @@
 
     <p class="my-2">
       Outside of my work hours, I have been learning Rust and Svelte. I am also interested in Devops, Reinforcement
-      Learning and Robotics.
+      Learning, Robotics and tinkering with my homelab.
     </p>
 
     <p class="my-2">
@@ -28,19 +28,8 @@
         Olympiad </a> when I was in high school in 2016.
     </p>
 
-    <p class="my-2">
-      Here is a fun Nim game that I play with my friends and family to prank them. You can learn more about it in this
-      <a
-        class="text-blue-500 hover:underline"
-        href="https://www.amazon.com/Course-Game-Theory-Thomas-Ferguson/dp/9813227346"> Game Theory Book </a>.
-    </p>
-
-    <p>
-      <span class="italic">(Spoilers: You will always lose)</span>
-    </p>
-
     <!--  <p>Last updated: September, 2025</p>-->
   </div>
 </div>
 
-<NimGame />
+<!--<NimGame />-->

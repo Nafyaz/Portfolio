@@ -15,6 +15,17 @@
   }
 </script>
 
+<p class="my-2">
+  Here is a fun Nim game that I play with my friends and family to prank them. You can learn more about it in this
+  <a
+    class="text-blue-500 hover:underline"
+    href="https://www.amazon.com/Course-Game-Theory-Thomas-Ferguson/dp/9813227346"> Game Theory Book </a>.
+</p>
+
+<p>
+  <span class="italic">(Spoilers: You will always lose)</span>
+</p>
+
 <div class="mx-10 my-8 border-2 p-2">
   <div class="my-2">
     <span class="font-bold"> Rules: </span> There is a pre-defined number of coins at the start of the game. Also, each
