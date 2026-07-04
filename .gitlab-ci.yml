@@ -1,0 +1,58 @@
+workflow:
+  name: Generate ASCII Artwork
+
+stages:
+  - build
+  - test
+  - docker
+  - deploy
+
+variables:
+  USERNAME: dockerUsername
+  REGISTRY: docker.io/$USERNAME
+  IMAGE: ascii-artwork
+  VERSION: $CI_PIPELINE_ID
+
+.build_job:
+  stage: build
+  script:
+    - gem install cowsay
+    - cowsay -f dragon "Run for cover, I am Dragon\!\!\!" >> dragon.txt
+  artifacts:
+    name: Dragon Text File
+    paths:
+      - dragon.txt
+    expire_in: 3 days
+
+.test_job:
+  stage: test
+  script:
+    - grep -i 'dragon' dragon.txt
+
+
+.docker_build:
+  stage: docker
+  script:
+    - echo "docker build -t $REGISTRY/$IMAGE:$VERSION"
+
+.docker_testing:
+  stage: docker
+  needs:
+    - docker_build
+  script:
+    - echo "docker run -p 80:80 $REGISTRY/$IMAGE:$VERSION"
+
+docker_push:
+  stage: docker
+  #  needs:
+  #    - docker_testing
+  script:
+    - echo "docker login --username=$USERNAME --password=$DOCKER_PASSWORD"
+    - echo "docker push $REGISTRY/$IMAGE:$VERSION"
+
+deploy_job:
+  stage: deploy
+  script:
+    - cat dragon.txt
+    - echo "deploying ... ... ."
+    - echo "Username - $USERNAME and Password = $DOCKER_PASSWORD"
